@@ -32,8 +32,9 @@ public class PutCarmodels extends RequestHandler{
             ResultSet rs = stmt.executeQuery("SELECT COUNT(*) AS total FROM carmodels");
 			int id = 1;
             while(rs.next()){
-            		id = rs.getInt("total");
+            		id = rs.getInt("total") ;
             }
+            id++;
             
             PreparedStatement prepstmnt = conn.prepareStatement("INSERT INTO carmodels (id,brand, model, price) VALUES(?,?,?,?)");
             prepstmnt.setInt(1, id);
